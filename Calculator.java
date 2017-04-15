@@ -28,7 +28,7 @@ public class Calculator {
     Операция умножения
     @param params входные параметры 
     */
-    public void multiply (int param){
+    public void mult (int param){
           this.result *=param;
     }
     /**
