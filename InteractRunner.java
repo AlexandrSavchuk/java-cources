@@ -1,4 +1,5 @@
 import java.util.Scanner;
+import java.math.BigDecimal;
 
 public class InteractRunner {
    public static void main (String[] args){
@@ -18,29 +19,30 @@ public class InteractRunner {
             if (oper.equals("+")){
                cnt ++;
                if (cnt == 1){ 
-                  calculator.add(Integer.valueOf(arg));
+			      System.out.println("arg=" + arg);
+                  calculator.add(new BigDecimal(arg));
                }
                System.out.println("Enter second arg");               
                String arg2 = reader.next();
-               calculator.add(Integer.valueOf(arg2));
+               calculator.add(new BigDecimal(arg2));
             } else if (oper.equals("-"))
             {
                cnt ++;
                if (cnt == 1){ 
-                  calculator.add(Integer.valueOf(arg));
+                  calculator.add(new BigDecimal(arg));
                }
                System.out.println("Enter second arg");               
                String arg2 = reader.next();
-               calculator.sub(Integer.valueOf(arg2));
+               calculator.sub(new BigDecimal(arg2));
             } else if (oper.equals("*"))
             {
                cnt ++;
                if (cnt == 1){ 
-                  calculator.add(Integer.valueOf(arg));
+                  calculator.add(new BigDecimal(arg));
                }
                System.out.println("Enter second arg");               
                String arg2 = reader.next();
-               calculator.mult(Integer.valueOf(arg2));
+               calculator.mult(new BigDecimal(arg2));
             }
             System.out.println("Result = " + calculator.getResult());            
             //calculator.cleanResult();

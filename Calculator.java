@@ -1,3 +1,5 @@
+import java.math.BigDecimal;
+
 /**
 Класс реализует калькулятор
 */
@@ -5,55 +7,55 @@ public class Calculator {
     /**
     Результат вычисления
     */
-    private int result;
+    private BigDecimal result = BigDecimal.ZERO;
     /**
     Операция сложения
     @param params входные параметры 
     */
-    public void add (int ... params){
-       for(Integer param:params){
-          this.result +=param;
+    public void add (BigDecimal ... params){
+       for(BigDecimal param:params){
+          this.result=this.result.add(param);
        }
     }
     /**
     Операция вычитания
     @param params входные параметры 
     */
-    public void sub (int ... params){
-       for(Integer param: params){
-          this.result -=param;
+    public void sub (BigDecimal ... params){
+       for(BigDecimal param: params){
+          this.result=this.result.subtract(param);
        }
     }
     /**
     Операция умножения
     @param params входные параметры 
     */
-    public void mult (int param){
-          this.result *=param;
+    public void mult (BigDecimal param){
+          this.result=this.result.multiply(param);
     }
     /**
     Операция деления
     @param params входные параметры 
     */
-    public void div (int param){
-          if (param == 0){
+    public void div (BigDecimal param){
+          if (param.signum() == 0){
              System.out.println("На ноль делить нельзя");
           } 
           else {
-          this.result /=param;
+          this.result=this.result.divide(param);
           }
     }
     /**
     Вернуть результат вычислений
     @return результат вычисления
     */
-    public int getResult(){
+    public BigDecimal getResult(){
        return this.result;
     }
     /**
     Очистить результат
     */
     public void cleanResult(){
-       this.result = 0;
+       this.result = BigDecimal.ZERO;
     }
 }
