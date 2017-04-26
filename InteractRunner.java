@@ -2,56 +2,61 @@ import java.util.Scanner;
 import java.math.BigDecimal;
 
 public class InteractRunner {
+   
+   private static Scanner reader = new Scanner (System.in);
+
+   private static String getArgument(){
+      System.out.println("Enter arg");
+      String arg2 = reader.next();        
+      return arg2;
+   }
+
+   private static String getMathOperation(){
+      System.out.println("Enter math operation");
+      String oper = reader.next();
+      return oper;
+   }
+
    public static void main (String[] args){
-      Scanner reader = new Scanner (System.in);
+
       try{
          Calculator calculator = new Calculator();
          String exit = "no";
          int cnt = 0;
          String arg = "0";
          while (!exit.equals("yes")){
+            //init first arg
             if (cnt == 0){             
-               System.out.println("Enter first arg");
-               arg = reader.next();
+               calculator.add(new BigDecimal(getArgument())); 
+               cnt ++;
             }
-            System.out.println("Enter math operation");
-            String oper = reader.next();
+            String oper = getMathOperation();
             if (oper.equals("+")){
-               cnt ++;
-               if (cnt == 1){ 
-			      System.out.println("arg=" + arg);
-                  calculator.add(new BigDecimal(arg));
-               }
-               System.out.println("Enter second arg");               
-               String arg2 = reader.next();
-               calculator.add(new BigDecimal(arg2));
-            } else if (oper.equals("-"))
-            {
-               cnt ++;
-               if (cnt == 1){ 
-                  calculator.add(new BigDecimal(arg));
-               }
-               System.out.println("Enter second arg");               
-               String arg2 = reader.next();
-               calculator.sub(new BigDecimal(arg2));
-            } else if (oper.equals("*"))
-            {
-               cnt ++;
-               if (cnt == 1){ 
-                  calculator.add(new BigDecimal(arg));
-               }
-               System.out.println("Enter second arg");               
-               String arg2 = reader.next();
-               calculator.mult(new BigDecimal(arg2));
+               calculator.add(new BigDecimal(getArgument()));
+            } 
+            else if (oper.equals("-")){
+               calculator.sub(new BigDecimal(getArgument()));
+            }
+            else if (oper.equals("*")){
+               calculator.mult(new BigDecimal(getArgument()));
+            } 
+            else if (oper.equals("/")){
+               calculator.div(new BigDecimal(getArgument()));
             }
             System.out.println("Result = " + calculator.getResult());            
-            //calculator.cleanResult();
-            System.out.println("Exit: yes/no");
+            System.out.println("Enter command: exit/clear");
             exit = reader.next();
+            if (!exit.equals("exit")){
+               exit = "no";
+               if (exit.equals("clear")){
+                  calculator.cleanResult();
+                  cnt = 0;
+               }
+            }
          }
-      }
-      finally{
+     }
+     finally{
          reader.close();
-      }
+     }
    }
 }
