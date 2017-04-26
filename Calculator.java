@@ -28,14 +28,14 @@ public class Calculator {
     }
     /**
     Операция умножения
-    @param params входные параметры 
+    @param param входные параметры 
     */
     public void mult (BigDecimal param){
           this.result=this.result.multiply(param);
     }
     /**
     Операция деления
-    @param params входные параметры 
+    @param param входные параметры 
     */
     public void div (BigDecimal param){
           if (param.signum() == 0){
