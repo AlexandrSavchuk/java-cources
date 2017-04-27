@@ -1,0 +1,4 @@
+e:\Projects\java-cources>java -classpath lib/junit-4.11.jar;lib/hamcrest-core-1.3.jar;./src CalculatorTest
+
+e:\Projects\java-cources>javac -classpath lib/junit-4.11.jar -sourcepath ./src -d src src/CalculatorTest.java
+
