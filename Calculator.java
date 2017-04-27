@@ -57,5 +57,6 @@ public class Calculator {
     */
     public void cleanResult(){
        this.result = BigDecimal.ZERO;
+       System.out.println("Result clean!");
     }
 }

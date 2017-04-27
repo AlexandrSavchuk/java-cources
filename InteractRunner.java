@@ -24,7 +24,7 @@ public class InteractRunner {
          String exit = "no";
          int cnt = 0;
          String arg = "0";
-         while (!exit.equals("yes")){
+         while (!exit.equals("exit")){
             //init first arg
             if (cnt == 0){             
                calculator.add(new BigDecimal(getArgument())); 
@@ -47,11 +47,11 @@ public class InteractRunner {
             System.out.println("Enter command: exit/clear");
             exit = reader.next();
             if (!exit.equals("exit")){
-               exit = "no";
                if (exit.equals("clear")){
                   calculator.cleanResult();
                   cnt = 0;
                }
+               exit = "no";
             }
          }
      }
